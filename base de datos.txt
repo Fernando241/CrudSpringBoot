@@ -1,0 +1,17 @@
+Nota: Codigo para crear la base de datos por MySQL consola con 5 registros
+
+-----------------------------------------
+
+CREATE DATABASE DB_EJEMPLO;
+
+USE DB_EJEMPLO;
+
+CREATE TABLE persona(
+id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+name varchar(50),
+phone varchar(15))engine=innodb;
+
+INSERT INTO persona(name,phone) VALUES ("Maria Jimenez","3111123445"),("Antonio Ortiz","3002323345"),("Maritza Monsalve","3221234321"),("Daniel Manrrique","3171004321"),("Maribel Sanabria","3031665321");
+
+SELECT * FROM persona;
+
