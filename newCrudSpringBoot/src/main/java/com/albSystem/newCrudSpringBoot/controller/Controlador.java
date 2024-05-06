@@ -8,9 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,27 +26,27 @@ public class Controlador {
     @GetMapping("/listar")
     public String listar(Model model){
         List<Persona>personas = service.listar();
-        model.addAttribute("personas", personas);
-        return "index";
+        model.addAttribute("Personas", personas);
+        return "indexP";
     }
     
     @GetMapping("/new")
     public String agregar(Model model){
-        model.addAttribute("persona", new Persona());
-        return "form";
+        model.addAttribute("Persona", new Persona());
+        return "ingresar";
     }
     
     @PostMapping("/save")
-    public String save(@Validated Persona p, Model model){
+    public String save(Persona p, Model model){
         service.save(p);
         return "redirect:/listar";
     }
     
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable int id, Model model){
-        Optional<Persona>persona=service.listarId(id);
-        model.addAttribute("persona", persona);
-        return "form";
+        Optional<Persona>Personas=service.listarId(id);
+        model.addAttribute("Persona", Personas);
+        return "ingresar";
     }
     
     @GetMapping("/eliminar/{id}")

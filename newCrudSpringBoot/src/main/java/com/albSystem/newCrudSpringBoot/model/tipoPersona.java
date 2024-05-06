@@ -7,27 +7,24 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-//Anotaciones
-@Entity
-@Table(name = "Persona")
 
-public class Persona {
+@Entity
+@Table(name = "tipoPersona")
+
+public class tipoPersona {
     
-    //Anotaciones
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     
     private int id;
     private String name;
-    private String phone;
 
-    public Persona() {
+    public tipoPersona() {
     }
 
-    public Persona(int id, String name, String phone) {
+    public tipoPersona(int id, String name) {
         this.id = id;
         this.name = name;
-        this.phone = phone;
     }
 
     public int getId() {
@@ -45,14 +42,4 @@ public class Persona {
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-    
-    
 }
